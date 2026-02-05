@@ -20,7 +20,6 @@ Key characteristics:
    - The app uses browser APIs (`File.arrayBuffer()`) to read the ZIP into memory.
    - A browser-compatible ZIP library (e.g., `fflate`, `jszip`, or similar) is used to enumerate and extract entries from the archive.
 
-
 3. **Parsing internal files**
    - Relevant JSON files (`followers_1.json`, `following.json`) are parsed using `JSON.parse`.
    - **Web Worker Offloading**: Files larger than 10MB are processed in a dedicated Web Worker (`src/workers/zip.worker.ts`) to prevent UI freezing.
@@ -52,7 +51,6 @@ Key characteristics:
   - `parsers.ts`: Zod-based (or simple) validation helpers.
 - `src/lib/persistence/`: LocalStorage wrappers for Credibility.
 - `tests/`: Vitest unit tests for Logic and Persistence.
-
 
 ### Why We Do NOT Use Instagram Login
 

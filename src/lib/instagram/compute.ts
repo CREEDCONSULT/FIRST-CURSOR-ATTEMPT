@@ -5,11 +5,11 @@ export type RelationStats = {
   followingCount: number;
   mutualsCount: number;
   mutualsPercentage: number; // relative to smaller list (or maybe following?) -> let's do relative to "following" usually, or just provide raw.
-  // The prompt asked for "counts + percentages". I'll provide % of total unique profiles involved? 
+  // The prompt asked for "counts + percentages". I'll provide % of total unique profiles involved?
   // Standard Instagram audit stats usually show % of following that doesn't follow back.
   notFollowingBackCount: number;
   notFollowingBackPercentage: number; // % of following
-  
+
   followersYouDontFollowCount: number;
   followersYouDontFollowPercentage: number; // % of followers
 };
@@ -72,8 +72,7 @@ export function computeRelationshipSets(
   // 3. Sort (stable sort by username)
   // ProfileRef.username is the original string. We should sort by normalized username or original?
   // "stable sort: by username". Usually implies case-insensitive alphabetic sort for user lists.
-  const sorter = (a: ProfileRef, b: ProfileRef) => 
-    a.username.localeCompare(b.username);
+  const sorter = (a: ProfileRef, b: ProfileRef) => a.username.localeCompare(b.username);
 
   mutuals.sort(sorter);
   notFollowingBack.sort(sorter);
@@ -82,21 +81,18 @@ export function computeRelationshipSets(
   // 4. Calculate Stats
   const followersCount = followersMap.size;
   const followingCount = followingMap.size;
-  
-  // Guard against division by zero
-  const notFollowingBackPercentage = followingCount > 0 
-    ? (notFollowingBack.length / followingCount) * 100 
-    : 0;
-    
-  const followersYouDontFollowPercentage = followersCount > 0
-    ? (followersYouDontFollow.length / followersCount) * 100
-    : 0;
 
-    // Mutuals % can be relative to either. Often "Engagement rate" like. 
-    // Let's typically view it relative to "Following" (how many of my followings match?)
-    const mutualsPercentage = followingCount > 0
-    ? (mutuals.length / followingCount) * 100
-    : 0;
+  // Guard against division by zero
+  const notFollowingBackPercentage =
+    followingCount > 0 ? (notFollowingBack.length / followingCount) * 100 : 0;
+
+  const followersYouDontFollowPercentage =
+    followersCount > 0 ? (followersYouDontFollow.length / followersCount) * 100 : 0;
+
+  // Mutuals % can be relative to either. Often "Engagement rate" like.
+  // Let's typically view it relative to "Following" (how many of my followings match?)
+  const mutualsPercentage =
+    followingCount > 0 ? (mutuals.length / followingCount) * 100 : 0;
 
   return {
     mutuals,

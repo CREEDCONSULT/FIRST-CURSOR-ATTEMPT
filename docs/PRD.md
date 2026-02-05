@@ -32,8 +32,8 @@ IG Follow Audit is a **purely client-side** tool that helps you explore and audi
    - **Pagination**: Efficiently browse thousands of rows.
 
 3. **Credibility & Tagging System**
-   - **Tag**: Mark accounts as *Creator, Celebrity, Business, Personal, or Unknown*.
-   - **Score**: Assign *High, Medium, or Low* activity levels.
+   - **Tag**: Mark accounts as _Creator, Celebrity, Business, Personal, or Unknown_.
+   - **Score**: Assign _High, Medium, or Low_ activity levels.
    - **Persistence**: Tags are saved locally in the browser (`localStorage`), persisting across sessions.
 
 4. **Actionable Unfollow Plan**

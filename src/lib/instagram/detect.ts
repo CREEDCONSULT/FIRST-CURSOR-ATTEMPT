@@ -1,4 +1,4 @@
-import type { JsonZipResult } from "../../../lib/zip";
+import type { JsonZipResult } from "../zip";
 import { parseStringListData } from "./parsers";
 import type { ProfileRef } from "./types";
 

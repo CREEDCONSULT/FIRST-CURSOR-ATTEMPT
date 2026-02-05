@@ -1,4 +1,4 @@
-import UploadZip from "../src/components/UploadZip";
+import UploadZip from "../components/UploadZip";
 
 export default function HomePage() {
   return (
